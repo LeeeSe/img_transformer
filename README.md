@@ -31,6 +31,7 @@
 
 - 图像缩放
 ![scale_ui.png](images/scale_ui.png)
+
 - 图像去重
 ![dup_ui.png](images/dup_ui.png)
 
