@@ -1,0 +1,83 @@
+from PySide6.QtCore import (QCoreApplication,
+                            QMetaObject, QRect, Qt)
+from PySide6.QtWidgets import (QDial, QLabel, QMainWindow,
+                               QProgressBar, QPushButton, QRadioButton,
+                               QWidget)
+
+
+class Ui_QtWindow(QMainWindow):
+    def setupUi(self, QtWindow):
+        if not QtWindow.objectName():
+            QtWindow.setObjectName(u"QtWindow")
+        QtWindow.resize(644, 435)
+        self.centralwidget = QWidget(QtWindow)
+        self.centralwidget.setObjectName(u"centralwidget")
+        self.label = QLabel(self.centralwidget)
+        self.label.setObjectName(u"label")
+        self.label.setGeometry(QRect(30, 43, 261, 291))
+        self.label.setAlignment(Qt.AlignCenter)
+        self.label_2 = QLabel(self.centralwidget)
+        self.label_2.setObjectName(u"label_2")
+        self.label_2.setGeometry(QRect(350, 43, 261, 291))
+        self.label_2.setAlignment(Qt.AlignCenter)
+        self.dial = QDial(self.centralwidget)
+        self.dial.setObjectName(u"dial")
+        self.dial.setGeometry(QRect(164, 333, 71, 81))
+        self.dial.setValue(50)
+        self.pushButton = QPushButton(self.centralwidget)
+        self.pushButton.setObjectName(u"pushButton")
+        self.pushButton.setGeometry(QRect(30, 43, 261, 291))
+        self.label_3 = QLabel(self.centralwidget)
+        self.label_3.setObjectName(u"label_3")
+        self.label_3.setGeometry(QRect(90, 367, 58, 16))
+        self.label_5 = QLabel(self.centralwidget)
+        self.label_5.setObjectName(u"label_5")
+        self.label_5.setGeometry(QRect(420, 353, 58, 16))
+        self.label_6 = QLabel(self.centralwidget)
+        self.label_6.setObjectName(u"label_6")
+        self.label_6.setGeometry(QRect(419, 383, 58, 16))
+        self.label_7 = QLabel(self.centralwidget)
+        self.label_7.setObjectName(u"label_7")
+        self.label_7.setGeometry(QRect(500, 353, 58, 16))
+        self.label_8 = QLabel(self.centralwidget)
+        self.label_8.setObjectName(u"label_8")
+        self.label_8.setGeometry(QRect(500, 383, 58, 16))
+        self.label_9 = QLabel(self.centralwidget)
+        self.label_9.setObjectName(u"label_9")
+        self.label_9.setGeometry(QRect(30, 10, 58, 16))
+        self.radioButton = QRadioButton(self.centralwidget)
+        self.radioButton.setObjectName(u"radioButton")
+        self.radioButton.setGeometry(QRect(110, 10, 99, 20))
+        self.radioButton.setChecked(True)
+        self.radioButton_2 = QRadioButton(self.centralwidget)
+        self.radioButton_2.setObjectName(u"radioButton_2")
+        self.radioButton_2.setGeometry(QRect(180, 10, 99, 20))
+        self.pushButton_2 = QPushButton(self.centralwidget)
+        self.pushButton_2.setObjectName(u"pushButton_2")
+        self.pushButton_2.setGeometry(QRect(293, 174, 51, 32))
+        self.progressBar = QProgressBar(self.centralwidget)
+        self.progressBar.setObjectName(u"progressBar")
+        self.progressBar.setGeometry(QRect(360, 10, 241, 23))
+        self.progressBar.setValue(0)
+        QtWindow.setCentralWidget(self.centralwidget)
+
+        self.retranslateUi(QtWindow)
+
+        QMetaObject.connectSlotsByName(QtWindow)
+
+    # setupUi
+
+    def retranslateUi(self, QtWindow):
+        QtWindow.setWindowTitle(QCoreApplication.translate("QtWindow", u"MainWindow", None))
+        self.label.setText("")
+        self.pushButton.setText(QCoreApplication.translate("QtWindow", u"\u70b9\u51fb\u9009\u62e9\u6587\u4ef6", None))
+        self.label_3.setText(QCoreApplication.translate("QtWindow", u"\u538b\u7f29\u8c03\u94ae\uff1a\uff1a", None))
+        self.label_5.setText(QCoreApplication.translate("QtWindow", u"\u539f\u59cb\u5927\u5c0f\uff1a", None))
+        self.label_6.setText(QCoreApplication.translate("QtWindow", u"\u76ee\u6807\u5927\u5c0f\uff1a", None))
+        self.label_7.setText("")
+        self.label_8.setText("")
+        self.label_9.setText(QCoreApplication.translate("QtWindow", u"\u60a8\u5c06\u538b\u7f29\uff1a", None))
+        self.radioButton.setText(QCoreApplication.translate("QtWindow", u"\u6587\u4ef6", None))
+        self.radioButton_2.setText(QCoreApplication.translate("QtWindow", u"\u6587\u4ef6\u5939", None))
+        self.pushButton_2.setText(QCoreApplication.translate("QtWindow", u"\u8f6c\u6362", None))
+    # retranslateUi
