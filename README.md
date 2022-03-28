@@ -2,6 +2,8 @@
 
 一个利用PySide和OpenCv开发的带GUI的开源免费图像批量转换工具
 
+---
+
 ## 目录
 
 - [软件界面](#软件界面)
@@ -15,26 +17,19 @@
 - [版本控制](#版本控制)
 - [作者](#作者)
 
-
-
+---
 ### 软件界面
 
----
 1. 主界面
-![img.png](images/main_ui.png)
----
+![main_ui.png](images/main_ui.png)
 2. 图像重命名
-![img.png](images/rename_ui.png)
----
+![rename_ui.png](images/rename_ui.png)
 3. 图像质量调整
-![img_1.png](images/quality_ui.png)
----
+![quality_ui.png](images/quality_ui.png)
 4. 图像缩放
-![img_2.png](images/scale_ui.png)
----
+![scale_ui.png](images/scale_ui.png)
 5. 图像去重
-![img_3.png](images/dup_ui.png)
----
+![dup_ui.png](images/dup_ui.png)
 
 ### to_do_list
 - [x] 主UI创建
