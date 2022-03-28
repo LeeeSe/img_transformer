@@ -21,7 +21,7 @@
 ### 软件界面
 
 - 主界面
-![main.png](images/main_ui.png)
+![main_ui.png](images/main_ui.png)
 
 - 图像重命名
 ![rename_ui.png](images/rename_ui.png)
