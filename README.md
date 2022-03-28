@@ -25,8 +25,10 @@
 
 - 图像重命名
 ![rename_ui.png](images/rename_ui.png)
+
 - 图像质量调整
 ![quality_ui.png](images/quality_ui.png)
+
 - 图像缩放
 ![scale_ui.png](images/scale_ui.png)
 - 图像去重
