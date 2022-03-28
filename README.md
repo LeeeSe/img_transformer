@@ -19,22 +19,16 @@
 
 ---
 ### 软件界面
-
-- 主界面
+主界面
 ![main_ui.png](images/main_ui.png)
-
-- 图像重命名
+图像重命名
 ![rename_ui.png](images/rename_ui.png)
-
-- 图像质量调整
+图像质量调整
 ![quality_ui.png](images/quality_ui.png)
-
-- 图像缩放
+图像缩放
 ![scale_ui.png](images/scale_ui.png)
-
-- 图像去重
+图像去重
 ![dup_ui.png](images/dup_ui.png)
-
 ### to_do_list
 - [x] 主UI创建
 - [x] 图像重命名
