@@ -1,7 +1,6 @@
-import sys, os
+import os
+import sys
 from PySide6.QtGui import QIcon
-
-sys.path.append(r'/')
 from PySide6.QtWidgets import QApplication, QMainWindow, QStyleFactory
 from ui_code.ui_img_transoformer import Ui_MainWindow  # 引入主UI
 from logic_code.img_rename import ThwbWindow  # 引入替换文本UI
@@ -18,8 +17,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):  # 主窗口
         self.QualityWindow = None
         self.RenameWindow = None
         self.setupUi(self)
-        print(QStyleFactory.keys())
-        if 'macoOS' in QStyleFactory.keys():
+        if 'macOS' in QStyleFactory.keys():
             QApplication.setStyle(QStyleFactory.create('macos'))
         else:
             QApplication.setStyle(QStyleFactory.create('Fusion'))

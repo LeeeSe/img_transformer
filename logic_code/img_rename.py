@@ -1,10 +1,9 @@
 import os
-from PySide6.QtWidgets import QFileDialog, QStyleFactory
-from logic_code.utils import load_style
+from PySide6.QtWidgets import QFileDialog
 from logic_code.utils import message, error
+from ui_code.ui_img_rename_gs import Ui_GsWindow
 from ui_code.ui_img_rename_thwb import Ui_ThwbWindow
 from ui_code.ui_img_rename_tjwb import Ui_TjwbWindow
-from ui_code.ui_img_rename_gs import Ui_GsWindow
 
 
 class ThwbWindow(Ui_ThwbWindow):  # 替换文本
