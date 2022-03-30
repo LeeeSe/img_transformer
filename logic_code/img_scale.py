@@ -1,6 +1,6 @@
 import os
 from PySide6.QtWidgets import QFileDialog, QMainWindow, QApplication
-from logic_code.utils import message, error
+from logic_code.utils import message, error, imread, get_images_list
 from ui_code.ui_img_scale import Ui_ScaleWindow
 import cv2
 
@@ -26,7 +26,7 @@ class ScaleWindow(Ui_ScaleWindow, QMainWindow):  # 替换文本
         self.pushButton_2.clicked.connect(self.transfm)
 
     def change_mode(self):
-        if self.comboBox.currentText() == "指定宽高缩放":
+        if self.comboBox.currentText() == "指定长宽缩放":
             self.label_3.show()
             self.label_4.show()
             self.spinBox.show()
@@ -67,10 +67,10 @@ class ScaleWindow(Ui_ScaleWindow, QMainWindow):  # 替换文本
             self.close()
 
     def refresh(self):
-        if self.comboBox.currentText() == "指定宽高缩放":
+        if self.comboBox.currentText() == "指定长宽缩放":
             if self.example is not None:
                 self.label_7.setText(str(self.example_size))
-            self.dst_size = [self.spinBox.value(), self.spinBox_2.value()]
+            self.dst_size = [self.spinBox_2.value(), self.spinBox.value()]
             self.label_8.setText(str(self.dst_size))
         else:
             if self.example is not None:
@@ -83,25 +83,28 @@ class ScaleWindow(Ui_ScaleWindow, QMainWindow):  # 替换文本
                 self.label_8.clear()
 
     def img_sf(self, src, dst):
-        img = cv2.imread(src, cv2.IMREAD_UNCHANGED)
-        img = cv2.resize(img, (self.dst_size[1], self.dst_size[0]))
+        img = imread(src, cv2.IMREAD_UNCHANGED)
+        if self.comboBox.currentText() == "指定长宽缩放":
+            img = cv2.resize(img, (self.dst_size[0], self.dst_size[1]))
+        else:
+            img = cv2.resize(img, (img.shape[1] * self.spinBox_3.value() // 100, img.shape[0] * self.spinBox_3.value() // 100))
         cv2.imwrite(dst, img)
 
     def open(self):
         if self.radioButton.isChecked():
             self.example = QFileDialog.getOpenFileName(None, "选择单个图片文件", os.getcwd())[0]
             if len(self.example) > 0:
-                self.example_size = cv2.imread(self.example, cv2.IMREAD_UNCHANGED).shape[0:2]
+                self.example_size = imread(self.example, cv2.IMREAD_UNCHANGED).shape[0:2]
         else:
             self.dir = QFileDialog.getExistingDirectory(None, "选择文件夹路径", os.getcwd())
             if len(self.dir) > 0:
-                self.list = os.listdir(self.dir)
+                self.list = get_images_list(self.dir)
                 if len(self.list) <= 0:
                     error(content="文件夹为空，请重新选择文件夹")
                     self.open()
                 else:
                     self.example = os.path.join(self.dir, self.list[0])
-                    self.example_size = cv2.imread(self.example, cv2.IMREAD_UNCHANGED).shape[0:2]
+                    self.example_size = imread(self.example, cv2.IMREAD_UNCHANGED).shape[0:2]
         self.example_size = [self.example_size[1], self.example_size[0]]
         self.refresh()
         self.pushButton_2.show()

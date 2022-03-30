@@ -1,21 +1,25 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'img_scaleAuvYzj.ui'
+## Form generated from reading UI file 'img_scaleiEvIAH.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.2.3
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
 
-from PySide6.QtCore import (QCoreApplication,
-    QMetaObject,QRect,)
-
-from PySide6.QtWidgets import (QComboBox, QLabel, QMainWindow,
-    QProgressBar, QPushButton, QRadioButton,
+from PySide6.QtCore import (QCoreApplication, QDate, QDateTime, QLocale,
+    QMetaObject, QObject, QPoint, QRect,
+    QSize, QTime, QUrl, Qt)
+from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
+    QFont, QFontDatabase, QGradient, QIcon,
+    QImage, QKeySequence, QLinearGradient, QPainter,
+    QPalette, QPixmap, QRadialGradient, QTransform)
+from PySide6.QtWidgets import (QApplication, QComboBox, QLabel, QMainWindow,
+    QProgressBar, QPushButton, QRadioButton, QSizePolicy,
     QSpinBox, QWidget)
 
-class Ui_ScaleWindow(QMainWindow):
+class Ui_ScaleWindow(object):
     def setupUi(self, ScaleWindow):
         if not ScaleWindow.objectName():
             ScaleWindow.setObjectName(u"ScaleWindow")
@@ -64,13 +68,13 @@ class Ui_ScaleWindow(QMainWindow):
         self.label_4.setGeometry(QRect(24, 80, 58, 16))
         self.spinBox = QSpinBox(self.centralwidget)
         self.spinBox.setObjectName(u"spinBox")
-        self.spinBox.setGeometry(QRect(81, 47, 51, 22))
+        self.spinBox.setGeometry(QRect(81, 77, 51, 22))
         self.spinBox.setMinimum(1)
         self.spinBox.setMaximum(99999)
         self.spinBox.setValue(256)
         self.spinBox_2 = QSpinBox(self.centralwidget)
         self.spinBox_2.setObjectName(u"spinBox_2")
-        self.spinBox_2.setGeometry(QRect(81, 77, 51, 22))
+        self.spinBox_2.setGeometry(QRect(81, 46, 51, 22))
         self.spinBox_2.setMinimum(1)
         self.spinBox_2.setMaximum(99999)
         self.spinBox_2.setValue(256)
@@ -99,15 +103,15 @@ class Ui_ScaleWindow(QMainWindow):
         self.radioButton.setText(QCoreApplication.translate("ScaleWindow", u"\u6587\u4ef6", None))
         self.radioButton_2.setText(QCoreApplication.translate("ScaleWindow", u"\u6587\u4ef6\u5939", None))
         self.label_7.setText("")
-        self.label_5.setText(QCoreApplication.translate("ScaleWindow", u"\u539f\u59cb\u5927\u5c0f\uff1a", None))
+        self.label_5.setText(QCoreApplication.translate("ScaleWindow", u"\u539f\u59cb\u957f\u5bbd\uff1a", None))
         self.label_8.setText("")
-        self.label_6.setText(QCoreApplication.translate("ScaleWindow", u"\u76ee\u6807\u5927\u5c0f\uff1a", None))
+        self.label_6.setText(QCoreApplication.translate("ScaleWindow", u"\u76ee\u6807\u957f\u5bbd\uff1a", None))
         self.label_9.setText(QCoreApplication.translate("ScaleWindow", u"\u60a8\u5c06\u7f29\u653e\uff1a", None))
-        self.comboBox.setItemText(0, QCoreApplication.translate("ScaleWindow", u"\u6307\u5b9a\u5bbd\u9ad8\u7f29\u653e", None))
+        self.comboBox.setItemText(0, QCoreApplication.translate("ScaleWindow", u"\u6307\u5b9a\u957f\u5bbd\u7f29\u653e", None))
         self.comboBox.setItemText(1, QCoreApplication.translate("ScaleWindow", u"\u6309\u6bd4\u4f8b\u7f29\u653e", None))
 
-        self.label_3.setText(QCoreApplication.translate("ScaleWindow", u"\u76ee\u6807\u5bbd\uff1a", None))
-        self.label_4.setText(QCoreApplication.translate("ScaleWindow", u"\u76ee\u6807\u9ad8\uff1a", None))
+        self.label_3.setText(QCoreApplication.translate("ScaleWindow", u"\u76ee\u6807\u957f\uff1a", None))
+        self.label_4.setText(QCoreApplication.translate("ScaleWindow", u"\u76ee\u6807\u5bbd\uff1a", None))
         self.label_10.setText(QCoreApplication.translate("ScaleWindow", u"\u7f29\u653e\u4e3a\u539f\u56fe\u7684\u767e\u5206\u4e4b\uff1a", None))
         self.pushButton.setText(QCoreApplication.translate("ScaleWindow", u"\u9009\u62e9\u6587\u4ef6", None))
     # retranslateUi

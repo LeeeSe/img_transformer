@@ -1,8 +1,7 @@
 import os
 from PySide6.QtGui import QPixmap
 from PySide6.QtWidgets import QFileDialog, QMainWindow, QApplication
-from logic_code.utils import get_file_size, get_tmp_name
-from logic_code.utils import message, error
+from logic_code.utils import get_file_size, get_tmp_name, message, error, imread, get_images_list
 from ui_code.ui_img_quality import Ui_QtWindow
 import cv2
 
@@ -30,6 +29,7 @@ class QtWindow(Ui_QtWindow, QMainWindow):  # 替换文本
             path_list = [os.path.join(self.dir, name) for name in self.list]
             self.progressBar.setMaximum(len(self.list))
             for i, path in enumerate(path_list):
+                i += 1
                 QApplication.processEvents()
                 try:
                     self.img_ys(path, path)
@@ -51,10 +51,10 @@ class QtWindow(Ui_QtWindow, QMainWindow):  # 替换文本
 
     def img_ys(self, src, dst):
         radio = self.dial.value()
-        img = cv2.imread(src, cv2.IMREAD_UNCHANGED)
-        if os.path.splitext(src)[1] in ['png', 'PNG']:
+        img = imread(src, cv2.IMREAD_UNCHANGED)
+        if os.path.splitext(src)[1] in ['.png', '.PNG']:
             cv2.imwrite(dst, img, [cv2.IMWRITE_PNG_COMPRESSION, radio // 10])
-        elif os.path.splitext(src)[1] in ['webp', 'WEBP']:
+        elif os.path.splitext(src)[1] in ['.webp', '.WEBP']:
             cv2.imwrite(dst, img, [cv2.IMWRITE_WEBP_QUALITY, radio])
         else:
             cv2.imwrite(dst, img, [cv2.IMWRITE_JPEG_QUALITY, radio])
@@ -90,7 +90,7 @@ class QtWindow(Ui_QtWindow, QMainWindow):  # 替换文本
         else:
             self.dir = QFileDialog.getExistingDirectory(None, "选择文件夹路径", os.getcwd())
             if len(self.dir) > 0:
-                self.list = os.listdir(self.dir)
+                self.list = get_images_list(self.dir)
                 if len(self.list) <= 0:
                     error(content="文件夹为空，请重新选择文件夹")
                     self.open()

@@ -1,6 +1,6 @@
 import os
 from PySide6.QtWidgets import QFileDialog
-from logic_code.utils import message, error
+from logic_code.utils import message, error, get_files_list
 from ui_code.ui_img_rename_gs import Ui_GsWindow
 from ui_code.ui_img_rename_thwb import Ui_ThwbWindow
 from ui_code.ui_img_rename_tjwb import Ui_TjwbWindow
@@ -34,7 +34,8 @@ class ThwbWindow(Ui_ThwbWindow):  # 替换文本
     def open(self):
         self.dir = QFileDialog.getExistingDirectory(None, "选择文件夹路径", os.getcwd())
         if len(self.dir) > 0:
-            self.list = os.listdir(self.dir)
+            self.list = get_files_list(self.dir)
+            print(self.list)
             if len(self.list) <= 0:
                 error(content="文件夹为空，请重新选择文件夹")
                 self.open()
@@ -103,7 +104,7 @@ class TjwbWindow(Ui_TjwbWindow):  # 添加文本
     def open(self):
         self.dir = QFileDialog.getExistingDirectory(None, "选择文件夹路径", os.getcwd())
         if len(self.dir) > 0:
-            self.list = os.listdir(self.dir)
+            self.list = get_files_list(self.dir)
             if len(self.list) <= 0:
                 error(content="文件夹为空，请重新选择文件夹")
                 self.open()
@@ -189,7 +190,8 @@ class GsWindow(Ui_GsWindow):  # 格式
     def open(self):
         self.dir = QFileDialog.getExistingDirectory(None, "选择文件夹路径", os.getcwd())
         if len(self.dir) > 0:
-            self.list = os.listdir(self.dir)
+            self.list = get_files_list(self.dir)
+            print(self.list)
             if len(self.list) <= 0:
                 error(content="文件夹为空，请重新选择文件夹")
                 self.open()

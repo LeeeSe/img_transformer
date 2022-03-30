@@ -1,8 +1,22 @@
 import os
 import tempfile
 import shutil
+import cv2
+import numpy as np
 from PySide6.QtWidgets import QMessageBox
-
+suffix = (
+    '.jpg',
+    'jpeg',
+    '.png',
+    '.PNG',
+    '.JPG',
+    '.JPEG',
+    '.webp',
+    ',WEBP',
+    '.tif',
+    '.bmp',
+    '.tiff',
+)
 
 def file_move(file_list, dir, save_folder_name):
     save_dir = os.path.join(dir, save_folder_name)
@@ -46,3 +60,24 @@ def get_file_size(file):
 def get_tmp_name(file):
     tmp_dir = tempfile.gettempdir()
     return os.path.join(tmp_dir, 'tmp' + os.path.splitext(file)[1])
+
+
+def imread(src, mode):
+    if cv2.imdecode(np.fromfile(src, dtype=np.uint8), mode) is None:
+        print(f'file is None {src}')
+    return cv2.imdecode(np.fromfile(src, dtype=np.uint8), mode)
+
+
+def get_files_list(dir):
+    temp = os.listdir(dir)
+    temp = [os.path.join(dir, file_name) for file_name in temp if file_name[0] != '.']
+
+    return [os.path.basename(file) for file in temp if os.path.isfile(file)]
+
+
+def get_images_list(dir):
+    temp = os.listdir(dir)
+    for file in temp:
+        if not file.endswith(suffix):
+            temp.remove(file)
+    return temp

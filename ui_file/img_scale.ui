@@ -79,7 +79,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>原始大小：</string>
+     <string>原始长宽：</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_8">
@@ -105,7 +105,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>目标大小：</string>
+     <string>目标长宽：</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_9">
@@ -145,7 +145,7 @@
     </property>
     <item>
      <property name="text">
-      <string>指定宽高缩放</string>
+      <string>指定长宽缩放</string>
      </property>
     </item>
     <item>
@@ -164,7 +164,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>目标宽：</string>
+     <string>目标长：</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_4">
@@ -177,14 +177,14 @@
      </rect>
     </property>
     <property name="text">
-     <string>目标高：</string>
+     <string>目标宽：</string>
     </property>
    </widget>
    <widget class="QSpinBox" name="spinBox">
     <property name="geometry">
      <rect>
       <x>81</x>
-      <y>47</y>
+      <y>77</y>
       <width>51</width>
       <height>22</height>
      </rect>
@@ -203,7 +203,7 @@
     <property name="geometry">
      <rect>
       <x>81</x>
-      <y>77</y>
+      <y>46</y>
       <width>51</width>
       <height>22</height>
      </rect>
