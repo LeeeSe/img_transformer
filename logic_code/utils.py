@@ -4,6 +4,7 @@ import shutil
 import cv2
 import numpy as np
 from PySide6.QtWidgets import QMessageBox
+
 suffix = (
     '.jpg',
     'jpeg',
@@ -17,6 +18,7 @@ suffix = (
     '.bmp',
     '.tiff',
 )
+
 
 def file_move(file_list, dir, save_folder_name):
     save_dir = os.path.join(dir, save_folder_name)
@@ -38,6 +40,14 @@ def error(content="操作错误"):
 
 def message(content="操作成功"):
     QMessageBox.information(None, "提示", content)
+
+
+def yes_or_not(content="是否将重复文件移动到新文件夹？"):
+    select = QMessageBox.information(None, '选择', content, QMessageBox.No | QMessageBox.Yes)
+    if select == QMessageBox.Yes:
+        return True
+    else:
+        return False
 
 
 def load_style(file, widget):
@@ -63,8 +73,6 @@ def get_tmp_name(file):
 
 
 def imread(src, mode):
-    if cv2.imdecode(np.fromfile(src, dtype=np.uint8), mode) is None:
-        print(f'file is None {src}')
     return cv2.imdecode(np.fromfile(src, dtype=np.uint8), mode)
 
 
@@ -81,3 +89,22 @@ def get_images_list(dir):
         if not file.endswith(suffix):
             temp.remove(file)
     return temp
+
+
+def list_split(list=[], n=4):
+    k, m = divmod(len(list), n)
+    return (list[i * k + min(i, m):(i + 1) * k + min(i + 1, m)] for i in range(n))
+
+
+def mul_get_hash(img_name_list_split, folder_path, pHash, hash_dict):
+    print('enter new Process')
+    for i, img in enumerate(img_name_list_split):
+        i += 1
+        img_path = os.path.join(folder_path, img)
+        try:
+            hash = pHash(img_path)
+        except Exception as ex:
+            print(f'图像：{img}求哈希失败')
+            print(ex)
+            continue
+        hash_dict[img] = hash

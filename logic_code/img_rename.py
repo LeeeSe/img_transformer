@@ -16,7 +16,6 @@ class ThwbWindow(Ui_ThwbWindow):  # 替换文本
         self.list = None
         self.dir = None
         self.setupUi(self)
-        self.styleSheet
         # load_style("qss/py_dracula_light.qss", self)
         self.pbn_openfd.clicked.connect(self.open)
         self.btn_rename.clicked.connect(self.rename)

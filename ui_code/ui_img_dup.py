@@ -9,9 +9,10 @@
 ################################################################################
 
 from PySide6.QtCore import (QCoreApplication,
-    QMetaObject, QRect, Qt)
+                            QMetaObject, QRect, Qt)
 from PySide6.QtWidgets import (QLabel, QMainWindow, QProgressBar,
-    QPushButton, QSlider, QWidget)
+                               QPushButton, QSlider, QWidget)
+
 
 class Ui_DupWindow(QMainWindow):
     def setupUi(self, DupWindow):
@@ -48,6 +49,7 @@ class Ui_DupWindow(QMainWindow):
         self.horizontalSlider.valueChanged.connect(self.label_2.setNum)
 
         QMetaObject.connectSlotsByName(DupWindow)
+
     # setupUi
 
     def retranslateUi(self, DupWindow):
@@ -57,4 +59,3 @@ class Ui_DupWindow(QMainWindow):
         self.pushButton.setText(QCoreApplication.translate("DupWindow", u"\u9009\u62e9\u6587\u4ef6\u5939", None))
         self.pushButton_2.setText(QCoreApplication.translate("DupWindow", u"\u5f00\u59cb\u53bb\u91cd", None))
     # retranslateUi
-

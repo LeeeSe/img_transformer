@@ -5,7 +5,7 @@ from PySide6.QtWidgets import QApplication, QMainWindow, QStyleFactory
 from ui_code.ui_img_transoformer import Ui_MainWindow  # 引入主UI
 from logic_code.img_rename import ThwbWindow  # 引入替换文本UI
 from logic_code.img_quality import QtWindow
-from logic_code.img_dup import DupWindow
+from logic_code.img_dup_multi import DupWindow
 from logic_code.img_scale import ScaleWindow
 
 
@@ -43,8 +43,9 @@ class MainWindow(QMainWindow, Ui_MainWindow):  # 主窗口
         self.ScaleWindow.show()
 
 
-app = QApplication([])
-app.setWindowIcon(QIcon(os.path.join(os.getcwd(), 'images/icon.png')))
-MainWindow = MainWindow()
-MainWindow.show()
-sys.exit(app.exec())
+if __name__ == '__main__':
+    app = QApplication([])
+    app.setWindowIcon(QIcon(os.path.join(os.getcwd(), 'images/icon.png')))
+    MainWindow = MainWindow()
+    MainWindow.show()
+    sys.exit(app.exec())
